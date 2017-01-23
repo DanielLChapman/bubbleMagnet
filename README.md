@@ -1,4 +1,4 @@
-View the info page here :
+View the info page here : https://daniellchapman.github.io/bubbleMagnet/bubbleIndex.html
 
 This goes over most of the functionality, but on the basic level, I really enjoyed this codepen by Jack Rugle (link: http://codepen.io/jackrugile/pen/DozAd). I wanted to recreate it to learn how it was built, to get a better understanding of canvas, and as a possible addition to my portfolio. Ultimately I decided it didnt fit with how I wanted my portfolio to feel, but I already had re-created it, improved it slightly, and turned it into a JS file that can be used with most html pages. So I decided to put it on github. 
 
