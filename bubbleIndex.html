@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <script   src="http://code.jquery.com/jquery-3.1.1.slim.min.js"   integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="   crossorigin="anonymous"></script>
+        <script src="bubbleCanvas.js"></script>
+    </head>
+    <body>
+        <header class="text">
+            <h1>Bubble Magnet Controller</h1>
+            <h3>So, I was looking for inspiration for something to do that is interactive on my portfolio and came across <a href="http://codepen.io/jackrugile/pen/DozAd">this</a>. I really enjoyed it, and saw it used Canvas which I feel a little weak on, so I re-created it to get some canvas experience. I also added a few options to make it a little bit better as it also allowed me to better understand everything that was happening. </h3>
+            <h3>I ultimately decided not to use it in my portfolio, but I had already converted it to a JS file that can easily be imported into a project for use, so I thought why not post it. In accordance with CodePen license, this follows the same MIT License policy of being open sourced.</h3>
+            <h3>View the JS here: <a href="bubbleCanvas.js">Link</a></h3>
+            <h4>Simply put this in your  head or at the end of your html file : <code>&lt;script src="bubbleCanvas.js"&gt&lt/script&gt</code> and move the JS file to your project. This also requires jQuery so make sure the file is included.</h4>
+            <h4>Start the script by calling startBubbling('body', true);</h4>
+            <h4>Replace body with the class or id call, i.e. '.center-box' or '#middle', quotation is required </h4>
+            <h4>If you dont want the controls to appear, replace true with false. Edit the css of the controls using class magnetControls. Edit the JS file under the function startBubbling to alter any of the controls.</h4>
+            <h2>Click on any of the below bordered areas to start bubbling inside.</h2>
+            <h2>Click again to attract or push the bubbles away.</h2>
+            
+        </header>
+        <div class="example-1 text">
+            <h1>Automatically fits any size and shape div</h1>
+            <div class="circle-div" onclick="shouldStart('.circle-div', false);"></div>
+        </div>
+        <div class="example-2 text">
+            <h3>Simply reshape using CSS. The application applies a rectangular canvas, so in shaped divs, some of the canvas will be cut off.</h3>
+            <div class="css-field" onclick="shouldStart('.css-field', false);"></div>
+        </div>
+        <div class="example-3 text">
+            <h3>Or you can have it fill the screen by keeping body and adding the following CSS rule :</h3>
+            <code>canvas {
+              background: [add your color option]; 
+              display: block;
+              left: 0;
+              position: absolute;
+              top: 0;
+            }</code>
+            <h3>Or make a div height: 100vh; width: 100%;</h3>
+            <br />
+            <div class="full-screen" onclick="shouldStart('.full-screen', true);"></div>
+            <h3>And it reshapes automatically too</h3>
+        </div>
+    </body>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+        .text {
+            padding: 10px;
+        }
+        .circle-div {
+            width: 500px;
+            border:1px solid black;
+            height: 500px;
+            border-radius: 1500px;
+        }
+        
+        .css-field {
+            height: 100px;
+            width: 400px;
+            border:1px solid black;
+        }
+        
+        .full-screen {
+            height: 100vh;
+            width: 100%;
+            border: 1px solid black;
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            display: block;
+            background: white;
+        }
+        .magnetControls {
+            width: 200px;
+            height: 300px;
+            background: rgba(46,46,46,.4);
+            z-index: 2;
+            position: fixed;
+            top: 300px;
+            right: 0;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        var lastField = '.full-screen';
+        var shouldStart = function(ele, boolean) {
+            if (lastField != ele) {
+                startBubbling(ele, boolean);
+            }
+            lastField = ele;
+        }
+        startBubbling('.full-screen', true);
+        
+    </script>
+</html>
